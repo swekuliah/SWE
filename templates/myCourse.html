@@ -1,0 +1,52 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mycourse</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/myCourse.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+</head>
+<body>
+    <a href="http://127.0.0.1:8000/collection/" class="container-link">
+        <span class="container-text">Material</span>
+        <div class="container">
+            <div class="inner-box"></div>
+            <div class="inner-box"></div>
+            <div class="inner-box"></div>
+        </div>
+    </a>
+    <a href="http://127.0.0.1:8000/collection/" class="container-link">
+        <span class="container-text">Notes from public</span>
+        <div class="container">
+            <div class="inner-box"></div>
+            <div class="inner-box"></div>
+            <div class="inner-box"></div>
+        </div>
+    </a>
+    <a href="http://127.0.0.1:8000/collection/" class="container-link">
+        <span class="container-text">Forum</span>
+        <div class="container">
+            <div class="inner-box"></div>
+            <div class="inner-box"></div>
+            <div class="inner-box"></div>
+        </div>
+    </a>
+
+    <!-- navbar.html -->
+    <div class="navbar">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+        <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
+        <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
+        </a>
+        <a href="http://127.0.0.1:8000/collection/" class="nav-link">
+        <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
+        </a>
+        <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
+        <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
+        </a>
+        <a href="http://127.0.0.1:8000/profile/" class="nav-link">
+        <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
+        </a>
+    </div>
+</body>
+</html>

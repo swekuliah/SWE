@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Making Website</title>
+    <link rel="stylesheet" href="{% static '/css/MYNOTE.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create new note</h1>
+        <div class="content">
+            <form id="noteForm" enctype="multipart/form-data" method="POST", action='http://127.0.0.1:8000/mynotes/'>
+                {% csrf_token %}
+                <input name="titles" type="text" id="title" class="title" placeholder="Note Title">
+                <textarea name="description" id="content" placeholder="Note Content"></textarea>
+                <input name="user_note" type="file" id="attachment" accept=".pdf,.doc,.docx,.txt">
+                <label for="privateSwitch">Private </label>
+                <!-- Rectangular switch -->
+                <label class="switch">
+                    <input name="availability" type="checkbox">
+                    <span class="slider"></span>
+                </label>                
+                <button type="submit" class="save-button" >Save Note</button>
+            </form>
+            {% for message in messages %}
+            <h5 style:"text-align: center;">{{message}}</h5>
+            {% endfor %}
+            <ul id="noteList"></ul>
+            <!-- navbar.html -->
+            <div class="navbar">
+                <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+                <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
+                <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
+                </a>
+                <a href="http://127.0.0.1:8000/collection/" class="nav-link">
+                <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
+                </a>
+                <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
+                <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
+                </a>
+                <a href="http://127.0.0.1:8000/profile/" class="nav-link">
+                <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+    {% comment %} <script src="{% static '/js/MYNOTE.JS' %}"></script> {% endcomment %}
+</body>
+</html>

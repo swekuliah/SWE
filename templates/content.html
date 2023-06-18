@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/CONTENT.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+<head>
+    <title>content page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <div class="content-text">
+                <h1>{{note.title}}</h1>
+                <h2>Author: {{note.author}}</h2>
+                {{note.description}}
+            </div>
+        </div>
+        <div class="navbar">
+            <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+            <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
+            <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
+            </a>
+            <a href="http://127.0.0.1:8000/collection/" class="nav-link">
+            <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
+            </a>
+            <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
+            <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
+            </a>
+            <a href="http://127.0.0.1:8000/profile/" class="nav-link">
+            <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
+            </a>
+        </div>
+    </div>
+    <script src=""></script>
+</body>
+</html>

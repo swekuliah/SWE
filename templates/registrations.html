@@ -1,0 +1,40 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnly Registration Page</title>
+    {% comment %} <link href={% static 'https://fonts.googleapis.com/css?family=Open Sans' %}rel='stylesheet'> {% endcomment %}
+    <link rel="stylesheet" href="{% static '/css/Registration.css' %}">
+</head>
+<body>
+    <h1 class="title">Learnly</h1>
+    <form id="registerForm" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <label for="email">Email</label>
+        <input name="email" type="email" id="email" required>
+        <div class="error" id="email-error"></div>
+      
+        <label for="username">Username</label>
+        <input name="username" type="text" id="username">
+        <div class="error" id="username-error"></div>
+      
+        <label for="password">Password</label>
+        <input name="password" type="password" id="password" required>
+        <div class="error" id="password-error"></div>
+      
+        <div class="submit-container">
+            <input type="submit" value="Sign Up">
+        </div>
+        <hr>
+        <p>Or already a user? <a href="http://127.0.0.1:8000/login/">LOGIN!</a></p> 
+    </form>
+
+    {% comment %} (connected to core.views.py login) display error if user misinput credential {% endcomment %}
+    {% for message in messages %}
+    <h5>{{message}}</h5>
+    {% endfor %}
+</body>
+</html>

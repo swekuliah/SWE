@@ -1,0 +1,32 @@
+.container {
+    background-color: #78C091;
+    width: 995px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/background.png");
+}
+
+.content-box {
+    background-color: white;
+    width: 900px;
+    padding: 20px;
+    min-height: 400px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.content-text{
+    font-family: sans-serif;
+    font-size: large;
+}

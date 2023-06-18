@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnly Dashboard Page</title>
+    {% comment %} <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/Dashboard.css' %}">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-title">
+            Welcome to Learnly {{user.username}}
+        </div>
+        <div class="dashboard-icons-container">
+            <div class="dashboard-icon">
+                {% comment %} added some touch, by displaying the user name {% endcomment %}
+                <a href="http://127.0.0.1:8000/mycourse/"><img src="{% static '/assets/My-Courses.png' %}" alt="My Course"></a>
+                <div class="dashboard-icon-label">My Course</div>
+            </div>
+            <div class="dashboard-icon">
+                <a href="http://127.0.0.1:8000/collection/"><img src="{% static '/assets/Collection.png' %}" alt="Collection"></a>
+                <div class="dashboard-icon-label">Collection</div>
+            </div>
+            <div class="dashboard-icon">
+                <a href="http://127.0.0.1:8000/mynotes/"><img src="{% static '/assets/My-Notes.png' %}" alt="My Notes"></a>
+                <div class="dashboard-icon-label">My Notes</div>
+            </div>
+            <div class="dashboard-icon">
+                <a href="http://127.0.0.1:8000/profile/"><img src="{% static '/assets/Profile.png' %}" alt="Profile"></a>
+                <div class="dashboard-icon-label">Profile</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
