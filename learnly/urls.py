@@ -23,3 +23,5 @@ urlpatterns = [
     # this is for courses (mynotes)
     path('', include("courses.urls")),
 ]
+
+# ini testing gatau buat apa, tapi harusnya bener di htmlnya anto ga kerubah, tapi bakal muncul ni
