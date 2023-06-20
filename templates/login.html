@@ -13,11 +13,7 @@
     <h1 class="title">Learnly</h1>
 
     {% comment %} display error if user misinput credential {% endcomment %}
-    <h2>
-        {% for message in messages %}
-        <h5 style:"text-align: center;">{{message}}</h5>
-        {% endfor %}
-    </h2>
+    
     <form id="registerForm" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         <label for="username">Username</label>
@@ -25,7 +21,12 @@
         <div class="error" id="username-error"></div>
       
         <label for="password">Password</label>
-        <input name="password" type="password" id="password" required><br>
+        <div class="container">
+            <input name="password" type="password" id="password" required>
+            {% for message in messages %}
+            <t5 class = "ErorM">{{ message }}</t5>
+            {% endfor %}
+        </div>
         <div class="error" id="password-error"></div>
       
         <div class="submit-container">
