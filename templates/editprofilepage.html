@@ -22,33 +22,41 @@
                     
                     <div class="form-group">
                         <label for="name">Name: {{username}}</label>
+                        <input type="text" id="display-name" disabled>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email: {{email}}</label>
+                        <input type="email" id="display-email" disabled>
                     </div>
                     
                 </div>
-                <button id="Logout-btn" class="btn" href="127.0.0.1:8000/logout/" action="127.0.0.1:8000/logout/">Logout</button>
-                <button id="edit-btn" class="btn" action="127.0.0.1:8000/">Edit</button>
+                <button id="edit-btn" class="btn" href="127.0.0.1:8000/logout/" action="127.0.0.1:8000/logout/">Logout</button>
+                <div id="edit-mode-buttons" style="display: none;">
+                    <button class="btn" onclick="changePassword()">Change Password</button>
+                    <button class="btn" onclick="saveChanges()">Save</button>
+                </div>
+                
+                <button id="edit-btn" class="btn" onclick="switchToEditMode()">Edit</button>
             </div>
             <!-- navbar.html -->
             <div class="navbar">
                 <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
-                <a href="{% url 'mycourse' %}" class="nav-link active">
+                <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
                 <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
                 </a>
-                <a href="{% url 'collection' %}" class="nav-link">
+                <a href="http://127.0.0.1:8000/collection/" class="nav-link">
                 <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
                 </a>
-                <a href="{% url 'mynotes' %}" class="nav-link">
+                <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
                 <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
                 </a>
-                <a href="{% url 'mycourse' %}" class="nav-link">
+                <a href="http://127.0.0.1:8000/profile/" class="nav-link">
                 <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
                 </a>
             </div>
         </div>
     </div>
+    <script src="{% static '/js/profileedit.js' %}"></script>
 </body>
 </html>
