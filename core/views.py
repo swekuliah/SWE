@@ -91,6 +91,7 @@ def edit_profile_page(request):
     # get the user instance
     return render(request, "editprofilepage.html", {"user":user})
 
+
 def edit_profile(request):
     user = request.user
     try:

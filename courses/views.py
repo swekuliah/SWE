@@ -38,9 +38,16 @@ def note_contents(request, note_id):
 
 def collection(request):
     collections = notes.objects.all()
+    user = request.user
     if len(collections)==0:
         redirect("mynotes")
-    return render(request, "collection.html", {"collections":collections})
+    return render(request, "collection.html", {"collections":collections, "user":user})
+
+def public_notes(request):
+    collections = notes.objects.all()
+    if len(collections)==0:
+        redirect("mynotes")
+    return render(request, "public_note.html", {"collections":collections})
 
 def my_course(request):
     return render(request, "myCourse.html")
