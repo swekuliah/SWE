@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from courses.models import notes
 from django.contrib import messages
+from courses.models import materials
 
 
 # Create your views here.
@@ -51,3 +52,9 @@ def public_notes(request):
 
 def my_course(request):
     return render(request, "myCourse.html")
+
+def material(request):
+    collections = materials.objects.all()
+    if len(collections)==0:
+        redirect("mycourse")
+    return render(request, "materials.html", {"collections":collections})

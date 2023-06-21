@@ -1,0 +1,72 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Materials</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% comment %} <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'> {% endcomment %}
+    <link rel="stylesheet" href="{% static '/css/Navbar.css'%}">
+    <link rel="stylesheet" href="{% static '/css/collection.css'%}">
+    {% comment %} <link rel="stylesheet" href="styles.css"> {% endcomment %}
+    <style>
+        /* Custom CSS styles for the anchor tag */
+        a.no-underline {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit the parent's color */
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="backborder">
+        <h1 class="title">Materials</h1>
+        <div class="box">
+            <div class="searchbar">
+                <input type="text" id="sbar" class="sbar" placeholder="Search..">
+            </div>
+            <div class="searchbar-button">
+                
+            </div>
+            <div class="box-container">
+                
+                {% for content in collections %}
+                {% comment %} 
+                dynamic url, by href = "{% url 'next url name' id/title/ect as extension of url %}"
+                if clicked the next url name will call the url name in urls.py, then pass the content.id (which in here is the)
+                {% endcomment %}
+                <a href="{% url 'note_content' content.id %}" class="no-underline">
+                    <div class="write1">
+                        <div class="content-text">
+                            <h3>{{content.material_title}}</h3>
+                            {{content.description}}
+                        </div>
+                        
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+        <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
+        <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
+        </a>
+        <a href="http://127.0.0.1:8000/collection/" class="nav-link">
+        <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
+        </a>
+        <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
+        <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
+        </a>
+        <a href="http://127.0.0.1:8000/profile/" class="nav-link">
+        <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
+        </a>
+    </div>
+
+</body>
+</html>
+

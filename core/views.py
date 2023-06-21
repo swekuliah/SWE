@@ -97,12 +97,21 @@ def edit_profile(request):
     try:
         if request.method == "POST":
             # take the new name & email
-            user.username = request.POST.get("changed_name")
-            user.email = request.POST.get("changed_email")
-
+            myname = request.POST.get("changed_name")
+            myemail = request.POST.get("changed_email")
+            if User.objects.filter(email=myemail).exists():
+                messages.info(request, "Email Already Used")
+                return redirect('edit_profile')
+            # username exist
+            elif User.objects.filter(username=myname).exists():
+                messages.info(request, "username Already exist")
+                return redirect('edit_profile')
             # save
-            user.save()
-            return redirect("profile")
+            else:
+                user.username = myname
+                user.email = myemail
+                user.save()
+                return redirect("profile")
         else:
             # if forum method !POST 
             print("error, forum method not POST")

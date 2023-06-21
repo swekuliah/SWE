@@ -45,6 +45,9 @@
                                 <input name="changed_email" type="email" id="display-email" >
                             </div>
                             <button type="submit">Save</button>
+                            {% for message in messages %}
+                            <h5>{{message}}</h5>
+                            {% endfor %}
                         </form>
                     </div>
                     {% comment %} <div class="form-group">
