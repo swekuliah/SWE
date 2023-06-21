@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>discussion page</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/discussion.css' %}">
+</head>
+<body>
+    <button id="backButton" onclick="goBack()">&#8592; Back</button>
+
+    <div class="container">
+        <div id="forum-container">
+            <h1>Discussion Forum</h1>
+
+            <div id="forum">
+                <!-- Forum content will be dynamically added here -->
+                <h1>1+1 = ?</h1>
+            </div>
+        </div>
+
+        <div id="comment-section">
+            <div id="comments">
+                <!-- Comments will be dynamically added here -->
+            </div>
+
+            <form id="postForm" class="reply-form">
+                <label for="username">Username: {{username}}</label>
+                <input type="hidden" id="username" value= {{username}}>
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button type="submit">Post</button>
+            </form>
+            
+
+            <div id="replyForm" style="display: none;">
+                <div class="reply-form">
+                    <div>
+                        <label for="replyUsername">Username:</label>
+                        <input type="text" id="replyUsername" required>
+                    </div>
+                    <div>
+                        <label for="replyMessage">Message:</label>
+                        <textarea id="replyMessage" required></textarea>
+                    </div>
+                    <button type="button" id="replySubmit">Reply</button>
+                    <button type="button" id="replyCancel">Cancel</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="{% static '/js/discussion.js' %}">
+        const username = {{username}} 
+    </script>
+</body>
+</html>

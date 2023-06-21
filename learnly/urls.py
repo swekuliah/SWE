@@ -22,4 +22,6 @@ urlpatterns = [
     path('', include("core.urls")),
     # this is for courses (mynotes)
     path('', include("courses.urls")),
+    # this is for forum stuff
+    path('', include("forums.urls")),
 ]

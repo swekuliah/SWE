@@ -1,0 +1,18 @@
+.container {
+    background-color: #78C091;
+    width: 995px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px; /* Add padding to create space between the container and the elements inside */
+    box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/background.png");
+}

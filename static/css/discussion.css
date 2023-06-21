@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/background.png");
+}
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#backButton.visible {
+    opacity: 1;
+}
+
+.container {
+    background-color: #78C091;
+    width: 995px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#forum-container {
+    background-color: #FFF;
+    width: 100%;
+    max-width: 955px;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Add margin to separate the containers */
+    border-radius: 10px;
+}
+
+#comment-section {
+    background-color: #FFF;
+    width: 100%;
+    max-width: 955px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#forum-container h1,
+#comment-section h1 {
+    margin-top: 0;
+}
+
+/* Custom Comment Section Theme */
+
+/* Comment Container */
+.message {
+    background-color: #F2F2F2;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Reply Container */
+.reply {
+    margin-left: 20px;
+    border-left: 2px solid #CCC;
+    padding-left: 10px;
+}
+
+/* Reply Message */
+.reply-message {
+    margin-left: 20px;
+    background-color: #EAEAEA;
+}
+
+/* Reply Form */
+.reply-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.reply-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.reply-form label {
+    margin-bottom: 5px;
+}
+
+.reply-form input[type="text"],
+.reply-form textarea {
+    width: 900px;
+}
+
+.reply-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+.reply-form button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+#comments {
+    margin-bottom: 20px;
+}

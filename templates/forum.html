@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static '/css/Navbar.css' %}">
+    <link rel="stylesheet" href="{% static '/css/MyNote2.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <style>
+        /* Custom CSS styles for the anchor tag */
+        a.no-underline {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit the parent's color */
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="backborder">
+        <h1 class="title">Forum</h1>
+        <div class="box">
+            <div class="searchbar">
+                <input type="text" id="sbar" class="sbar" placeholder="Search thread...">
+            </div>
+            <div class="searchbar-button">
+                
+            </div>
+            <div class="box-container">
+                <a href="{% url 'discussion' %}" class="no-underline">
+                    <div class="write1">
+                        <div class="content-text">
+                            <h3>Artificial intelligence</h3>
+                            1+1 berapa???
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
+        <a href="{% url 'mycourse' %}" class="nav-link active">
+        <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
+        </a>
+        <a href="{% url 'collection' %}" class="nav-link">
+        <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
+        </a>
+        <a href="{% url 'mynote' %}" class="nav-link">
+        <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
+        </a>
+        <a href="{% url 'profile' %}" class="nav-link">
+        <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
+        </a>
+    </div>
+
+</body>
+</html>
