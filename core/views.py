@@ -8,13 +8,6 @@ from django.contrib.auth import logout
 def dashboard(request):
     return render(request, "dashboard.html")
 
-# profile page
-def profile(request):
-    # take current user username and email
-    myname = request.user.username
-    mymail = request.user.email
-    return render(request, "profilepage.html", {"username":myname, "email":mymail})
-
 def register(request):
     # try catch is good for exception
     try:
@@ -87,15 +80,54 @@ def login(request):
     
     return render(request, "login.html")
 
+# profile page
+def profile(request):
+    # take current user username and email
+    user = request.user
+    return render(request, "profilepage.html", {"user":user})
+
+def edit_profile_page(request):
+    user = request.user
+    # get the user instance
+    return render(request, "editprofilepage.html", {"user":user})
+
 def edit_profile(request):
-    user_id = request.user.id
+    user = request.user
     try:
-        print("hello")
+        if request.method == "POST":
+            # take the new name & email
+            user.username = request.POST.get("changed_name")
+            user.email = request.POST.get("changed_email")
+
+            # save
+            user.save()
+            return redirect("profile")
+        else:
+            # if forum method !POST 
+            print("error, forum method not POST")
+            
     except Exception as e:
         error_message = str(e)  # Convert the exception to a string
         return render(request, "error.html", {'error_message': error_message})
-    
-    return render(request, "editprofilepage.html", {"id":user_id})
+    return render(request, "editprofilepage.html")
+
+def edit_profile_pic(request):
+    user_profile = request.user.UserProfile
+    try:
+        if request.method == "POST":
+            # take the profile pic
+            user_profile = request.FILES.get('profile_pic')
+            # save
+            user_profile.save()
+            return redirect("edit_profile")
+        else:
+            # if forum method !POST 
+            print("error, forum method not POST")
+            
+    except Exception as e:
+        error_message = str(e)  # Convert the exception to a string
+        return render(request, "error.html", {'error_message': error_message})
+    return render(request, "editprofilepage.html")
 
 def logout_user(request):
     logout(request)

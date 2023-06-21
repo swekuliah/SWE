@@ -8,4 +8,5 @@ class UserProfile(models.Model):
 
     # additional fields if user want to upload profile picture
     profile_pic = models.FileField(upload_to="./static/user_profile", default=None)
+    # jujur aja ku lupa kenapa tk bikin ini :v
     location = models.CharField(max_length=255, blank=True)

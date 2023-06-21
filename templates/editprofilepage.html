@@ -11,23 +11,30 @@
         <div class="green-container">
             <div class="white-container">
                 <!-- Profile picture -->
-                <!-- Profile picture -->
                 <div class="profile-picture-container">
-                    <img src="{% static '/assets/Profile.png' %}" alt="{% static '/assets/Profile.png' %}, 'Profile Picture'" id="profile-picture">
-                    <button id="edit-profile-btn" class="btn" onclick="editProfilePicture()" style="display: none;">Edit Profile Picture</button>
+                    {% if user.userprofile.profile_pic %}
+                        <img src="{{ user.userprofile.profile_pic }}" alt="Profile Picture">
+                    {% else %}
+                        <img src="{% static '/assets/Profile.png' %}" alt="Profile Picture" id="profile-picture">
+                    {% endif %}
+                    </form>
                 </div>
 
                 <!-- Content goes here -->
                 <div id="profile-details">
                     {% comment %} 
-                    to ini ku edit dikit ya yang bagian edit profilenya
+                    to ini ku edit mattiin bentar userprofilenya, ada bug
                     {% endcomment %}
-                    <div class="form-group">
+                    {% comment %} <div class="form-group">
                         <label for="name">Change profile picture:</label>
-                        <input name="user_profile" type="file" id="attachment" accept=".pdf,.doc,.docx,.txt">
-                    </div>
+                        <form id="profile_pic_change" method="POST", action="{% url 'commit_pic_edit' %}">
+                            {% csrf_token %}
+                            <input name="user_profile" type="file" id="attachment" accept=".jpg,.png,.jpeg">
+                            <button type="submit" class="save-button" >Save Picture</button>
+                        </form>
+                    </div> {% endcomment %}
                     <div class="form-group">
-                        <form id="name_change" method="POST", action="{% url 'edit_profile' %}">
+                        <form id="name_change" method="POST", action="{% url 'commit_edit' %}">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="name">Name:</label>
@@ -62,7 +69,7 @@
                 <a href="{% url 'mynote' %}" class="nav-link">
                 <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
                 </a>
-                <a href="{% url 'mycourse' %}" class="nav-link">
+                <a href="{% url 'profile' %}" class="nav-link">
                 <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
                 </a>
             </div>
