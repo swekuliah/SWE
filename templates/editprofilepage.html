@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>template page</title>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/profilepage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/editprofile.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
 </head>
 <body>
@@ -13,50 +13,61 @@
                 <!-- Profile picture -->
                 <!-- Profile picture -->
                 <div class="profile-picture-container">
-                    <img src="{% static '/assets/Profile.png' %}" alt="Profile Picture" id="profile-picture">
+                    <img src="{% static '/assets/Profile.png' %}" alt="{% static '/assets/Profile.png' %}, 'Profile Picture'" id="profile-picture">
                     <button id="edit-profile-btn" class="btn" onclick="editProfilePicture()" style="display: none;">Edit Profile Picture</button>
                 </div>
 
                 <!-- Content goes here -->
                 <div id="profile-details">
-                    
+                    {% comment %} 
+                    to ini ku edit dikit ya yang bagian edit profilenya
+                    {% endcomment %}
                     <div class="form-group">
-                        <label for="name">Name: {{username}}</label>
-                        <input type="text" id="display-name" disabled>
+                        <label for="name">Change profile picture:</label>
+                        <input name="user_profile" type="file" id="attachment" accept=".pdf,.doc,.docx,.txt">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="email">Email: {{email}}</label>
-                        <input type="email" id="display-email" disabled>
+                        <form id="name_change" method="POST", action="{% url 'edit_profile' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input name="changed_name" type="text" id="display-name" >
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input name="changed_email" type="email" id="display-email" >
+                            </div>
+                            <button type="submit">Save</button>
+                        </form>
                     </div>
+                    {% comment %} <div class="form-group">
+                        <form id="name_change" method="POST", action="{% url 'edit_profile' %}">
+                            {% csrf_token %}
+                            <label for="email">Email: {{email}}</label>
+                            <input name="changed_email" type="email" id="display-email" >
+                        </form>
+                    </div> {% endcomment %}
                     
                 </div>
-                <button id="edit-btn" class="btn" href="127.0.0.1:8000/logout/" action="127.0.0.1:8000/logout/">Logout</button>
-                <div id="edit-mode-buttons" style="display: none;">
-                    <button class="btn" onclick="changePassword()">Change Password</button>
-                    <button class="btn" onclick="saveChanges()">Save</button>
-                </div>
-                
-                <button id="edit-btn" class="btn" onclick="switchToEditMode()">Edit</button>
             </div>
             <!-- navbar.html -->
             <div class="navbar">
                 <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
-                <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
+                <a href="{% url 'mycourse' %}" class="nav-link active">
                 <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
                 </a>
-                <a href="http://127.0.0.1:8000/collection/" class="nav-link">
+                <a href="{% url 'collection' %}" class="nav-link">
                 <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
                 </a>
-                <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
+                <a href="{% url 'mynote' %}" class="nav-link">
                 <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
                 </a>
-                <a href="http://127.0.0.1:8000/profile/" class="nav-link">
+                <a href="{% url 'mycourse' %}" class="nav-link">
                 <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
                 </a>
             </div>
         </div>
     </div>
-    <script src="{% static '/js/profileedit.js' %}"></script>
+    {% comment %} <script src="{% static '/js/profileedit.js' %}"></script> {% endcomment %}
 </body>
 </html>

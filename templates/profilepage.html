@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>template page</title>
+    <title>profile</title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/profilepage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
 </head>
@@ -29,8 +29,20 @@
                     </div>
                     
                 </div>
-                <button id="Logout-btn" class="btn" href="127.0.0.1:8000/logout/" action="127.0.0.1:8000/logout/">Logout</button>
-                <button id="edit-btn" class="btn" action="127.0.0.1:8000/">Edit</button>
+                {% comment %} used form to make it easier for the frontend {% endcomment %}
+                <form action="{% url 'edit_profile' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">edit</button>
+                </form>                  
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+                {% comment %} uncomment below if the frontend dont want to use form as button {% endcomment %}
+                {% comment %} 
+                <a id="logout-btn" class="btn" href="{% url 'logout' %}">Logout</a>
+                <a id="logout-btn" class="btn" href="{% url 'logout' %}">Logout</a> 
+                {% endcomment %}
             </div>
             <!-- navbar.html -->
             <div class="navbar">
@@ -41,7 +53,7 @@
                 <a href="{% url 'collection' %}" class="nav-link">
                 <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
                 </a>
-                <a href="{% url 'mynotes' %}" class="nav-link">
+                <a href="{% url 'mynote' %}" class="nav-link">
                 <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
                 </a>
                 <a href="{% url 'mycourse' %}" class="nav-link">

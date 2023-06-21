@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import RedirectView
 from . import views
 
@@ -8,5 +8,6 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('login/', views.login, name="login"),
     path('dashboard/', views.dashboard, name="dashboard"),
+    path('profile/edit/', views.edit_profile, name="edit_profile"),
     path('logout/', views.logout_user, name="logout"),
 ]

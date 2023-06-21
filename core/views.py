@@ -87,6 +87,16 @@ def login(request):
     
     return render(request, "login.html")
 
+def edit_profile(request):
+    user_id = request.user.id
+    try:
+        print("hello")
+    except Exception as e:
+        error_message = str(e)  # Convert the exception to a string
+        return render(request, "error.html", {'error_message': error_message})
+    
+    return render(request, "editprofilepage.html", {"id":user_id})
+
 def logout_user(request):
     logout(request)
     return redirect("register")
