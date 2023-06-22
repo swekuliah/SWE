@@ -55,16 +55,16 @@
 
     <div class="navbar">
         <link rel="stylesheet" type="text/css" href="{% static '/css/Navbar.css' %}">
-        <a href="http://127.0.0.1:8000/mycourse/" class="nav-link active">
+        <a href="{% url 'mycourse' %}" class="nav-link active">
         <img src="{% static '/assets/My-Courses.png' %}" alt="My Course" class="nav-icon">
         </a>
-        <a href="http://127.0.0.1:8000/collection/" class="nav-link">
+        <a href="{% url 'collection' %}" class="nav-link">
         <img src="{% static '/assets/Collection.png' %}" alt="Collection" class="nav-icon">
         </a>
-        <a href="http://127.0.0.1:8000/mynotes/" class="nav-link">
+        <a href="{% url 'mynote' %}" class="nav-link">
         <img src="{% static '/assets/My-Notes.png' %}" alt="My Notes" class="nav-icon">
         </a>
-        <a href="http://127.0.0.1:8000/profile/" class="nav-link">
+        <a href="{% url 'profile' %}" class="nav-link">
         <img src="{% static '/assets/Profile.png' %}" alt="Profile" class="nav-icon">
         </a>
     </div>
